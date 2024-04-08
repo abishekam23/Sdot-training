@@ -46,30 +46,29 @@ def mergesortlist(l1,l2):
 
 def printList(n):
     while n is not None:
-        print(n.data, end="->")
+        print(n.data, end=" ")
         n = n.next
-    print("NULL")
+    print()
 
 if __name__ == "__main__":
-   n = int(input())
-   lst1=LinkedList()
-   data1= input().split(" ")
-   data1=data1[:-1]
-   size1 = len(data1)
-   for j in range(size1):
-        lst1.addNode(int(data1[j])) 
-   if n > 1:
+    n = int(input())
+    lst1=LinkedList()
+    data1 = input().split()
+    data1=data1[:-1]
+    size1 = len(data1)
+    for j in range(size1):
+         lst1.addNode(int(data1[j])) 
+    if n > 1:
         for i in range(n-1):
             lst2 = LinkedList()
-            data2 = input().split(" ")[:-1]
+            data2 = input().split()[:-1]
             size2 = len(data2)
             for k in range(size2):
                 lst2.addNode(int(data2[k]))
-            header = lst1.head
-            lst = mergesortlist(header,lst2.head)
-            lst1 = lst
+            merge = mergesortlist(lst1.head,lst2.head)
+            lst1.head = merge
         printList(lst1.head)
-   else:
+    else:
        printList(lst1.head)
  
 
