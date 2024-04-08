@@ -1,4 +1,4 @@
-class Node(self, data):
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -14,6 +14,12 @@ class LinkedList:
             return
         self.tail.next = newnode
         self.tail = newnode
+
+def printList(n):
+    while n is not None:
+        print(n.data, end="->")
+        n = n.next
+    print("NULL")
 
 def isPalindrome(head):
     slow = head
@@ -41,5 +47,10 @@ def isPalindrome(head):
 if __name__ == "__main__":
     head = None
     n = int(input())
-    
+    lst1 = LinkedList()
+    data = input().split(" ")
+    for i in range(n):
+        lst1.addNode(int(data[i]))
+    print(isPalindrome(lst1.head))
+
 
