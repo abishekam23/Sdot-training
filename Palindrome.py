@@ -15,21 +15,31 @@ class LinkedList:
         self.tail.next = newnode
         self.tail = newnode
 
-def Palindrome(head):
+def isPalindrome(head):
     slow = head
     fast = head
-    while fast and fast.next:
+    while fast is not None and fast.next is not None:
         slow = slow.next
         fast = fast.next.next
-    prev = None
-    while slow:
+    prev = slow
+    slow = slow.next
+    prev.next = None
+    while slow is not None:
         temp = slow.next
         slow.next = prev
         prev = slow
         slow = temp
-    while prev:
-        if prev.data != head.data:
+    fast = head
+    slow = prev
+    while slow is not None:
+        if fast.data != slow.data:
             return False
-        prev = prev.next
-        head = head.next
+        fast = fast.next
+        slow = slow.next
     return True
+
+if __name__ == "__main__":
+    head = None
+    n = int(input())
+    
+
