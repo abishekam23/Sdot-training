@@ -37,7 +37,7 @@ if __name__ == "__main__":
             print("Top element:", stack.top())
         elif v == 4:
             #print("Is empty:")
-            if(stack.is_empty()):
+            if(stack.isempty()):
               print("Is empty: true")
             else:
               print("Is empty: false")
